@@ -1,0 +1,36 @@
+{
+ "head" : {
+    "type" : "header",
+    "description" : "Settings"
+ },
+ "display-style" : {
+        "type": "combobox",
+        "default" : "both",
+        "description" : "Display style",
+        "options" : {
+            "Column" : "column",
+            "Both" : "both",
+            "CPU only" : "cpu",
+            "RAM only" : "mem"
+        }
+  },
+ "refresh-interval" : {
+    "type": "spinbutton",
+    "default" : 1000,
+    "min" : 0,
+    "max" : 5000,
+    "step" : 100,
+    "units" : "milliseconds",
+    "description": "Refresh interval",
+    "tooltip": "Time between data refeshes"
+ },
+ "decimal-places" : {
+    "type": "spinbutton",
+    "default" : 1,
+    "min" : 0,
+    "max" : 3,
+    "step" : 1,
+    "description": "Decimal places",
+    "tooltip": "Number of decimal places to show"
+ }
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created using Karbon, part of Calligra: http://www.calligra.org/karbon -->
+
+<svg
+   width="51.2pt"
+   height="51.2pt"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="icon.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:export-filename="/home/axel/Projects/Python/usub-gtk/usr/share/icons/hicolor/scalable/apps/cu.axel.USub.png"
+   inkscape:export-xdpi="89.999992"
+   inkscape:export-ydpi="89.999992"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview11"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:zoom="7.6025389"
+     inkscape:cx="28.016956"
+     inkscape:cy="34.133334"
+     inkscape:window-width="1366"
+     inkscape:window-height="692"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer0" />
+  <defs
+     id="defs2" />
+  <g
+     id="layer0">
+    <circle
+       id="circle2"
+       transform="matrix(3.7796,0,0,3.7796,5.00004,5.00004)"
+       r="5.71488pt"
+       cx="5.71488pt"
+       cy="5.71488pt"
+       fill="#e01b24"
+       style="fill:#008080;fill-opacity:1"
+       inkscape:export-filename="/home/axel/Projects/Mint/systemstats@axel358/circle2.png"
+       inkscape:export-xdpi="106.66685"
+       inkscape:export-ydpi="106.66685" />
+    <path
+       d="m 14.483864,36.840594 h 6.091335 l 9.409913,-17.924683 2.576264,19.56214 7.030144,-8.929594 7.270303,7.292137 h 6.920981 v 4.36655 H 45.049706 L 39.962677,36.120114 29.592123,49.350757 27.452514,33.15086 23.216962,41.207144 h -8.733098 z"
+       id="path2"
+       style="fill:#ffffff;stroke-width:2.18327"
+       inkscape:export-filename="/home/axel/Projects/Mint/systemstats@axel358/icon.png"
+       inkscape:export-xdpi="89.999992"
+       inkscape:export-ydpi="89.999992" />
+  </g>
+</svg>
