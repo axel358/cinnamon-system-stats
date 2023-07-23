@@ -5,6 +5,8 @@ const St = imports.gi.St;
 const GTop = imports.gi.GTop;
 const Mainloop = imports.mainloop;
 const Settings = imports.ui.settings;
+const GLib = imports.gi.GLib;
+
 class SystemStatsApplet extends Applet.TextApplet {
 
     constructor(metadata, orientation, panel_height, instance_id) {
@@ -33,15 +35,17 @@ class SystemStatsApplet extends Applet.TextApplet {
     update() {
         //CPU usage
         GTop.glibtop_get_cpu(this.cpu);
-        const cpu_now = (this.cpu.total - this.last_cpu) * 100 / this.refresh_interval ;
-
-        this.last_cpu = this.cpu.total;
-        const formatted_cpu = "CPU: " + cpu_now + "% ";
-        const formatted_cpu_bold = "<b>CPU: </b>" + cpu_now + "% ";
+        const cpu_total_now = (this.cpu.total - this.cpu_last_total);
+        const cpu_used_now = this.cpu.total - this.cpu.idle - this.cpu_last_used;
+        const cpu_usage = cpu_used_now / cpu_total_now * 100;
+        const formatted_cpu = "CPU: " + cpu_usage.toFixed(this.decimal_places) + "% ";
+        const formatted_cpu_bold = "<b>CPU: </b>" + cpu_usage.toFixed(this.decimal_places) + "% ";
+        this.cpu_last_total = this.cpu.total;
+        this.cpu_last_used = this.cpu.total - this.cpu.idle;
 
         //Memory usage
         GTop.glibtop_get_mem(this.mem);
-        const mem_used = (this.mem.user / this.mem.total * 100);
+        const mem_used = this.mem.user / this.mem.total * 100;
         const formatted_mem_info = "<b>RAM: </b>" + this.formatBytes(this.mem.user) + " / " + this.formatBytes(this.mem.total);
         const formatted_mem_used = "RAM: " + mem_used.toFixed(this.decimal_places) + "% ";
 
