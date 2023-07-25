@@ -97,7 +97,7 @@ class SystemStatsApplet extends Applet.TextApplet {
 
             //Up time
             GTop.glibtop_get_uptime(this.uptime);
-            const formatted_uptime = "<b>Up time: </b>" + this.uptime.uptime + "s";
+            const formatted_uptime = "<b>Up time: </b>" + this.formatSeconds(this.uptime.uptime);
 
 
             this.info_menu_item.label.get_clutter_text().set_markup(formatted_mem_info
@@ -118,6 +118,10 @@ class SystemStatsApplet extends Applet.TextApplet {
         const i = Math.floor(Math.log(bytes) / Math.log(1024));
 
         return `${parseFloat((bytes / Math.pow(1024, i)).toFixed(decimals))} ${sizes[i]}`;
+    }
+    
+    formatSeconds(seconds) {
+        return new Date(seconds * 1000).toISOString().substring(11, 19);
     }
 
     on_applet_removed_from_panel() {
