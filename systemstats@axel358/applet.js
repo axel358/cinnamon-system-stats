@@ -16,6 +16,7 @@ class SystemStatsApplet extends Applet.TextApplet {
         this.settings.bind("refresh-interval", "refresh_interval", this.on_settings_changed);
         this.settings.bind("decimal-places", "decimal_places", this.on_settings_changed);
         this.settings.bind("display-style", "display_style", this.on_settings_changed);
+        this.settings.bind("use-compact-label", "use_compact_label", this.on_settings_changed);
 
         this._applet_tooltip._tooltip.set_style("text-align:left");
 
@@ -38,7 +39,7 @@ class SystemStatsApplet extends Applet.TextApplet {
         const cpu_total_now = (this.cpu.total - this.cpu_last_total);
         const cpu_used_now = this.cpu.total - this.cpu.idle - this.cpu_last_used;
         const cpu_usage = cpu_used_now / cpu_total_now * 100;
-        const formatted_cpu = "CPU: " + cpu_usage.toFixed(this.decimal_places) + "% ";
+        const formatted_cpu = (this.use_compact_label ? "C: " : "CPU: ") + cpu_usage.toFixed(this.decimal_places) + "% ";
         const formatted_cpu_bold = "<b>CPU: </b>" + cpu_usage.toFixed(this.decimal_places) + "% ";
         this.cpu_last_total = this.cpu.total;
         this.cpu_last_used = this.cpu.total - this.cpu.idle;
@@ -47,7 +48,7 @@ class SystemStatsApplet extends Applet.TextApplet {
         GTop.glibtop_get_mem(this.mem);
         const mem_used = this.mem.user / this.mem.total * 100;
         const formatted_mem_info = "<b>RAM: </b>" + this.formatBytes(this.mem.user) + " / " + this.formatBytes(this.mem.total);
-        const formatted_mem_used = "RAM: " + mem_used.toFixed(this.decimal_places) + "% ";
+        const formatted_mem_used = (this.use_compact_label ? "R: " : "RAM: ") + mem_used.toFixed(this.decimal_places) + "% ";
 
         //Disk
         GTop.glibtop_get_fsusage(this.disk, "/");
