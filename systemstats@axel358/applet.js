@@ -70,7 +70,7 @@ class SystemStatsApplet extends Applet.TextApplet {
             + "\n" + formatted_disk_used_home
             + "\n" + formatted_uptime, true);
 
-        switch(this.display_style){
+        switch (this.display_style) {
             case "column":
                 this.set_applet_label(formatted_cpu + "\n" + formatted_mem_used);
                 break;
@@ -79,7 +79,7 @@ class SystemStatsApplet extends Applet.TextApplet {
                 break;
             case "cpu":
                 this.set_applet_label(formatted_cpu);
-               break;
+                break;
             case "mem":
                 this.set_applet_label(formatted_mem_used);
         }
