@@ -25,7 +25,7 @@ class SystemStatsApplet extends Applet.TextApplet {
         this.menu = new Applet.AppletPopupMenu(this, orientation);
         menu_manager.addMenu(this.menu);
 
-        this.info_menu_item = new PopupMenu.PopupMenuItem("", { reactive: false });
+        this.info_menu_item = new PopupMenu.PopupMenuItem("Collecting data...", { reactive: false });
         this.menu.addMenuItem(this.info_menu_item);
         this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
