@@ -9,7 +9,7 @@
       "description": "Display style",
       "options": {
          "Column": "column",
-         "Both": "both",
+         "Side by side": "row",
          "CPU only": "cpu",
          "RAM only": "mem"
       }

@@ -70,7 +70,7 @@ class SystemStatsApplet extends Applet.TextApplet {
             case "column":
                 this.set_applet_label(formatted_cpu + "\n" + formatted_mem_used);
                 break;
-            case "both":
+            case "row":
                 this.set_applet_label(formatted_cpu + " " + formatted_mem_used);
                 break;
             case "cpu":
@@ -111,15 +111,16 @@ class SystemStatsApplet extends Applet.TextApplet {
     }
 
     formatBytes(bytes, decimals = 1) {
-        if (!+bytes)
-            return '0 b';
+        if (bytes === 0)
+            return '0 B';
 
-        const sizes = ['b', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-        const i = Math.floor(Math.log(bytes) / Math.log(1024));
+        const kilo = 1024;
+        const sizes = ["B", "KB", "MB", "GB", "TB"];
+        const index = Math.floor(Math.log(bytes) / Math.log(kilo));
 
-        return `${parseFloat((bytes / Math.pow(1024, i)).toFixed(decimals))} ${sizes[i]}`;
+        return parseFloat((bytes / Math.pow(kilo, index)).toFixed(decimals)) + " " + sizes[index];
     }
-    
+
     formatSeconds(seconds) {
         return new Date(seconds * 1000).toISOString().substring(11, 19);
     }
