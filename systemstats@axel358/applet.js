@@ -18,6 +18,7 @@ class SystemStatsApplet extends Applet.TextApplet {
         this.settings.bind("decimal-places", "decimal_places", this.on_settings_changed);
         this.settings.bind("display-style", "display_style", this.on_settings_changed);
         this.settings.bind("use-compact-label", "use_compact_label", this.on_settings_changed);
+        this.settings.bind("font-size", "font_size", this.update_font_size);
 
         this.set_applet_tooltip("Click for more details");
 
@@ -38,6 +39,7 @@ class SystemStatsApplet extends Applet.TextApplet {
         this.disk = new GTop.glibtop_fsusage();
         this.uptime = new GTop.glibtop_uptime();
 
+        this.update_font_size();
         this.update();
     }
 
@@ -54,6 +56,7 @@ class SystemStatsApplet extends Applet.TextApplet {
         //CPU usage
         GTop.glibtop_get_cpu(this.cpu);
         const cpu_total_now = (this.cpu.total - this.cpu_last_total);
+
         const cpu_used_now = this.cpu.total - this.cpu.idle - this.cpu_last_used;
         const cpu_usage = cpu_used_now / cpu_total_now * 100;
         const formatted_cpu = (this.use_compact_label ? "C: " : "CPU: ") + cpu_usage.toFixed(this.decimal_places) + "% ";
@@ -123,6 +126,10 @@ class SystemStatsApplet extends Applet.TextApplet {
 
     formatSeconds(seconds) {
         return new Date(seconds * 1000).toISOString().substring(11, 19);
+    }
+
+    update_font_size() {
+        this._applet_label.style = "font-size: " + this.font_size + "%;";
     }
 
     on_applet_removed_from_panel() {
