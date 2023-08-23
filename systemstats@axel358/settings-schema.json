@@ -5,7 +5,7 @@
    },
    "display-style": {
       "type": "combobox",
-      "default": "both",
+      "default": "row",
       "description": "Display style",
       "options": {
          "Column": "column",
