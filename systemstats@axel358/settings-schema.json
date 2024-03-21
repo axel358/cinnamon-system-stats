@@ -5,11 +5,11 @@
    },
    "display-style": {
       "type": "combobox",
-      "default": "both",
+      "default": "row",
       "description": "Display style",
       "options": {
          "Column": "column",
-         "Both": "both",
+         "Side by side": "row",
          "CPU only": "cpu",
          "RAM only": "mem"
       }
@@ -38,5 +38,14 @@
       "step": 1,
       "description": "Decimal places",
       "tooltip": "Number of decimal places to show"
+   },
+   "font-size": {
+      "type": "spinbutton",
+      "default": 100,
+      "min": 50,
+      "max": 125,
+      "step": 5,
+      "description": "Font size",
+      "tooltip": "Label font size"
    }
 }
